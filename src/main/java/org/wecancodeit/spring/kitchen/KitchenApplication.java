@@ -1,5 +1,8 @@
 package org.wecancodeit.spring.kitchen;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.wecancodeit.spring.kitchen.cleaning.Dishwasher;
 import org.wecancodeit.spring.kitchen.cooking.Microwave;
 import org.wecancodeit.spring.kitchen.cooking.PizzaOven;
@@ -14,7 +17,13 @@ public class KitchenApplication {
 		PizzaOven pizzaOven = new PizzaOven();
 		Range range = new Range();
 		
-		KitchenApplication application = new KitchenApplication();
+		Collection<ElectricalAppliance> appliances = Arrays.asList(dishwasher, microwave, range);
+		GeneralManager gm = new GeneralManager(appliances);
+
+		Collection<Cooker> cookers = Arrays.asList(microwave, range, pizzaOven);
+		KitchenManager km = new KitchenManager(cookers);
+		
+		KitchenApplication application = new KitchenApplication(gm, km);
 		application.doThingsInTheKitchen();
 	}
 
@@ -23,15 +32,7 @@ public class KitchenApplication {
 	private KitchenManager kitchenMgr;
 
 	/**
-	 * This makes the class responsible for populating its attributes.
-	 */
-	public KitchenApplication() {
-		this.generalMgr = new GeneralManager();
-		this.kitchenMgr = new KitchenManager();
-	}
-
-	/**
-	 * This is dependency injection (constructor injection). It inverts control.
+	 * This is dependency injection (constructor injection).
 	 */
 	public KitchenApplication(GeneralManager generalMgr, KitchenManager kitchenMgr) {
 		this.generalMgr = generalMgr;

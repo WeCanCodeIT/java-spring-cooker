@@ -1,8 +1,6 @@
 package org.wecancodeit.spring.kitchen.cleaning;
 
-import org.springframework.stereotype.Component;
-import org.wecancodeit.spring.kitchen.Appliance;
+import org.wecancodeit.spring.kitchen.ElectricalAppliance;
 
-@Component
-public class Dishwasher extends Appliance {
+public class Dishwasher extends ElectricalAppliance {
 }
