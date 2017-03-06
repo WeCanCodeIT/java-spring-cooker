@@ -1,4 +1,4 @@
-package org.wecancodeit.spring.cookers;
+package org.wecancodeit.spring.kitchen;
 
 import java.util.Collection;
 

@@ -1,8 +1,8 @@
-package org.wecancodeit.spring.cookers.cooking;
+package org.wecancodeit.spring.kitchen.cooking;
 
 import org.springframework.stereotype.Component;
-import org.wecancodeit.spring.cookers.Appliance;
-import org.wecancodeit.spring.cookers.Cooker;
+import org.wecancodeit.spring.kitchen.Appliance;
+import org.wecancodeit.spring.kitchen.Cooker;
 
 @Component
 public class Microwave extends Appliance implements Cooker {

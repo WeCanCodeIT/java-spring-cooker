@@ -1,13 +1,10 @@
-package org.wecancodeit.spring.cookers;
+package org.wecancodeit.spring.kitchen;
 
-import org.wecancodeit.spring.cookers.cleaning.Dishwasher;
-import org.wecancodeit.spring.cookers.cooking.Microwave;
-import org.wecancodeit.spring.cookers.cooking.PizzaOven;
-import org.wecancodeit.spring.cookers.cooking.Range;
+import org.wecancodeit.spring.kitchen.cleaning.Dishwasher;
+import org.wecancodeit.spring.kitchen.cooking.Microwave;
+import org.wecancodeit.spring.kitchen.cooking.PizzaOven;
+import org.wecancodeit.spring.kitchen.cooking.Range;
 
-/**
- * Note that we're using packages now.
- */
 public class KitchenApplication {
 
 	public static void main(String[] args) {

@@ -1,13 +1,10 @@
-package org.wecancodeit.spring.cookers;
+package org.wecancodeit.spring.kitchen;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
-import org.wecancodeit.spring.cookers.cleaning.Dishwasher;
-import org.wecancodeit.spring.cookers.cooking.Microwave;
+import org.wecancodeit.spring.kitchen.cleaning.Dishwasher;
+import org.wecancodeit.spring.kitchen.cooking.Microwave;
 
 public class GeneralManager {
 
