@@ -1,8 +1,7 @@
-package org.wecancodeit.spring.cookers;
+package org.wecancodeit.spring.kitchen;
 
 import javax.annotation.Resource;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
