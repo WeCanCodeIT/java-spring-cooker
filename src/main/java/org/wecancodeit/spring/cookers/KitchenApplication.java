@@ -1,54 +1,54 @@
 package org.wecancodeit.spring.cookers;
 
-import javax.annotation.Resource;
+import org.wecancodeit.spring.cookers.cleaning.Dishwasher;
+import org.wecancodeit.spring.cookers.cooking.Microwave;
+import org.wecancodeit.spring.cookers.cooking.PizzaOven;
+import org.wecancodeit.spring.cookers.cooking.Range;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@ComponentScan
+/**
+ * Note that we're using packages now.
+ */
 public class KitchenApplication {
 
-	/**
-	 * The <code>try</code> below is called a <a href=
-	 * "https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>
-	 * statement. It ensures that whatever resources (files, streams, etc) that
-	 * are opened get closed. Don't get hung up on it -- focus on how the context is used for now.
-	 */
 	public static void main(String[] args) {
+
+		Dishwasher dishwasher = new Dishwasher();
+		Microwave microwave = new Microwave();
+		PizzaOven pizzaOven = new PizzaOven();
+		Range range = new Range();
 		
-		try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(
-				KitchenApplication.class)) {
+		KitchenApplication application = new KitchenApplication();
+		application.doThingsInTheKitchen();
+	}
 
-			KitchenApplication application = context.getBean(KitchenApplication.class);
-			application.doThingsInTheKitchen();
+	private GeneralManager generalMgr;
 
-		}
+	private KitchenManager kitchenMgr;
+
+	/**
+	 * This makes the class responsible for populating its attributes.
+	 */
+	public KitchenApplication() {
+		this.generalMgr = new GeneralManager();
+		this.kitchenMgr = new KitchenManager();
 	}
 
 	/**
-	 * This is a dependency injected by Spring.
+	 * This is dependency injection (constructor injection). It inverts control.
 	 */
-	@Resource
-	private GeneralManager generalMgr;
-	
-	/**
-	 * … and so is this.
-	 */
-	@Resource
-	private KitchenManager kitchenMgr;
-	
+	public KitchenApplication(GeneralManager generalMgr, KitchenManager kitchenMgr) {
+		this.generalMgr = generalMgr;
+		this.kitchenMgr = kitchenMgr;
+	}
+
 	/**
 	 * This isn't static. It's an instance method.
 	 */
 	public void doThingsInTheKitchen() {
-	
+
 		System.out.println("Telling the GM to turn the power on.");
 		generalMgr.turnPowerOn();
-		
+
 		System.out.println();
 		System.out.println("Telling the kitchen manager to get cooking.");
 		kitchenMgr.cookAllTheThings();
