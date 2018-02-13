@@ -50,6 +50,6 @@ public class KitchenApplication {
 		
 		System.out.println();
 		System.out.println("Telling the kitchen manager to get cooking.");
-		kitchenMgr.cookAllTheThings();
+//		kitchenMgr.cookAllTheThings();
 	}
 }

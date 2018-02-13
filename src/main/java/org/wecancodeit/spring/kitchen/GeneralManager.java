@@ -20,6 +20,15 @@ public class GeneralManager {
 	@Resource
 	private Collection<Appliance> appliances;
 
+	public GeneralManager() {
+	}
+	/**
+	 * Sometimes, we make things default visibility for testing.
+	 */
+	GeneralManager(Collection<Appliance> appliances) {
+		this.appliances = appliances;
+	}
+
 	public void turnPowerOn() {
 		System.out.println("I'm turning the power on so we can get cooking!");
 
